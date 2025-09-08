@@ -7938,7 +7938,34 @@ https://d2xz2v5wuvgur6.cloudfront.net/out/v1/6f5596513af749c19d0bcdac013dda3c/in
 #EXTINF:-1 tvg-id="MNCSports4.id"  tvg-url="https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/indonesia.xml" tvg-logo="https://i.imgur.com/TPT3YVW.jpeg" group-title="BOLA | AFC U17",Sportstars 4 (AG)
 https://d2xz2v5wuvgur6.cloudfront.net/out/v1/2fcc58ccec8c45e9aa094fb980eb642d/index.mpd
 ---------NEW 3/6/2025
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+BOLA | AFC ASIAN CUP 2025 - BOLA | AFC ASIAN CUP 2025 -BOLA | AFC ASIAN CUP 2025
+====================================================================================
 
+
+#EXTINF:-1 group-logo="https://i.imgur.com/6gTwzHE.png",BOLA | AFC ASIAN CUP 2025
+
+#EXTINF:-1 tvg-logo="https://i.imgur.com/6gTwzHE.png" group-title="BOLA | AFC ASIAN CUP 2025", LIVE 1
+https://raw.githubusercontent.com/hnnyo/anyar/refs/heads/main/indos3.m3u8
+
+
+#EXTINF:-1 tvg-id="tvkita" tvg-logo="https://i.imgur.com/6gTwzHE.png" group-title="BOLA | AFC ASIAN CUP 2025", LIVE 2
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone14,6; U; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Mobile/19E241 Safari/602.1
+#EXTVLCOPT:http-origin=https://ppdd02.dtfjinikdinbiframe.shop
+#EXTVLCOPT:http-referrer=https://ppdd02.dtfjinikdinbiframe.shop/
+https://bintangstreaming.my.id/connect/index.m3u8?channel=aff1&type=m3u8
+
+#EXTINF:-1 tvg-id="tvkita" tvg-logo="https://i.imgur.com/6gTwzHE.png" group-title="BOLA | AFC ASIAN CUP 2025", LIVE 3
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone14,6; U; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Mobile/19E241 Safari/602.1
+#EXTVLCOPT:http-origin=https://kami.drawntightlymuxulx.sbs
+#EXTVLCOPT:http-referrer=https://kami.drawntightlymuxulx.sbs/
+https://bintangstreaming.my.id/connect/index.m3u8?channel=u17&type=m3u8
+
+#EXTINF:-1 tvg-logo="https://i.imgur.com/6gTwzHE.png" group-title="BOLA | AFC ASIAN CUP 2025", Indosiar Superleague
+https://raw.githubusercontent.com/hnnyo/anyar/refs/heads/main/indos3.m3u8
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+BOLA | AFC ASIAN CUP 2025 - BOLA | AFC ASIAN CUP 2025 -BOLA | AFC ASIAN CUP 2025
+====================================================================================
 ======================================================================
 30/8/2025 LOG UPDATE |30/8/2025 LOG UPDATE |30/8/2025 LOG UPDATE |
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
