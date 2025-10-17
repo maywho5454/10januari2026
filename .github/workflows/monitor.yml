@@ -1,0 +1,31 @@
+name: Daily Signature Monitor
+on:
+  schedule:
+    - cron: '0 * * * *' # setiap jam (ubah sesuai kebutuhan)
+  workflow_dispatch:
+
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo (to access watermark/watermark.py)
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install PyGithub requests
+
+      - name: Run monitor
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # default token can create issues in the same repo
+          SIGNATURE: ${{ secrets.SIGNATURE }}       # set this secret in repo settings
+          OUTPUT_REPO: ${{ github.repository }}
+          ALERT_WEBHOOK: ${{ secrets.ALERT_WEBHOOK }} # optional
+        run: |
+          python3 monitor.py
