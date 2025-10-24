@@ -1,0 +1,54 @@
+name: Block Unauthorised PRs
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize]
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  block-novantama:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor == 'Novantama' }}
+    steps:
+      - name: Close PR from Novantama
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number,
+              body: "❌ PR ditolak otomatis: akun ini diblokir oleh pemilik repo."
+            })
+            await github.rest.pulls.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number,
+              state: "closed"
+            })
+
+  block-non-owner:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor != 'maywho5454' && github.actor != 'Novantama' }}
+    steps:
+      - name: Close PR from non-owner
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number,
+              body: "❌ PR ditolak: hanya pemilik (`maywho5454`) yang boleh mengusulkan perubahan pada repo ini."
+            })
+            await github.rest.pulls.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number,
+              state: "closed"
+            })
