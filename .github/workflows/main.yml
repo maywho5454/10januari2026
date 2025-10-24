@@ -1,0 +1,41 @@
+name: Auto Sync (Owner Only)
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "10 * * * *"  # tiap jam menit ke-10
+  push:
+    branches: [ "main" ]
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor == 'maywho5454' && github.actor != 'Novantama' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests PyGithub
+
+      - name: Guard (owner only)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
+        run: python scripts/sync_guard.py
+
+      - name: Jalankan skrip sinkron kamu
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
+        run: python contoh_sync.py
