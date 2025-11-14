@@ -1,111 +1,73 @@
-import os
-import requests
-from github import Github, GithubException
-from datetime import datetime
+#EXTINF:-1 group-logo="https://i.imgur.com/aVBedkE.jpeg",🔰 MAGELIFE OFFICIAL
 
-# --- KONFIGURASI ---
-GITHUB_TOKEN = os.getenv("GITHUB_PAT")
-SOURCE_OWNER = "maywho5454"
-SOURCE_REPO = "10januari2026"
-BLOCKLIST = ["Novantama"]
-ISSUE_LABEL = "anti-mirror"
-REPORT_ENDPOINT = "https://github.com/contact/dmca/takedown"
+#EXTINF:-1 tvg-id="Iheart80s" tvg-name="Iheart80s" tvg-logo="https://i.imgur.com/aVBedkE.jpeg" group-title="🔰 CHAT ADMIN", CHAT ADMIN
+https://iheart-iheart80s-1-us.roku.wurl.tv/playlist.m3u8
 
-def send_dmca_report(offender, repo_url):
-    """Kirim draft laporan ke GitHub DMCA endpoint"""
-    print(f"📩 Menyiapkan laporan DMCA untuk {offender} ...")
-    report = f"""
-    Kepada GitHub DMCA Team,
+#EXTINF:-1 group-logo="https://i.imgur.com/XXQ2pQ3.jpeg", ✅ CEK EMAIL KAMU 
 
-    Saya, pemilik akun '{SOURCE_OWNER}', melaporkan pelanggaran hak cipta:
-    Repo pelanggar: {repo_url}
-    Pemilik: {offender}
-    Repo ini menyalin dan mensinkronisasi otomatis dari:
-    https://github.com/{SOURCE_OWNER}/{SOURCE_REPO}
+#EXTINF:-1 tvg-id="Iheart80s" tvg-name="Iheart80s" tvg-logo="https://i.imgur.com/DUIDZUC.jpeg" group-title="✅ CEK EMAIL KAMU", Kalau ga ada chat admni
+https://iheart-iheart80s-1-us.roku.wurl.tv/playlist.m3u8
 
-    Mohon tindak lanjut sesuai ketentuan DMCA.
+#EXTINF:-1 group-logo="https://i.imgur.com/XXQ2pQ3.jpeg", ✅ KALAU GA ADA 
 
-    Hormat saya,
-    {SOURCE_OWNER}
-    """
-    with open("dmca_report.txt", "w", encoding="utf-8") as f:
-        f.write(report)
-    print("✅ Draft laporan DMCA tersimpan: dmca_report.txt")
+#EXTINF:-1 tvg-id="Iheart80s" tvg-name="Iheart80s" tvg-logo="https://i.imgur.com/DUIDZUC.jpeg" group-title="✅ KALAU GA ADA ", Kalau ga ada chat admni
+https://iheart-iheart80s-1-us.roku.wurl.tv/playlist.m3u8
 
+#EXTINF:-1 group-logo="https://i.imgur.com/XXQ2pQ3.jpeg", ✅ CHAT ADMIN KAMU
 
-def block_user(user_obj, username):
-    try:
-        user_obj.block(username)
-        print(f"🚫 User @{username} berhasil diblokir.")
-    except GithubException as e:
-        print(f"⚠️ Gagal blokir @{username}: {e}")
+#EXTINF:-1 tvg-id="Iheart80s" tvg-name="Iheart80s" tvg-logo="https://i.imgur.com/bxkCZST.jpeg" group-title="✅ CHAT ADMIN KAMU ", Kalau ga ada chat admni
+https://iheart-iheart80s-1-us.roku.wurl.tv/playlist.m3u8
 
+#EXTINF:-1 group-logo="https://i.imgur.com/bjfYe6g.jpegg", ✅ SILAHKAN RE ORDER
 
-def main():
-    if not GITHUB_TOKEN:
-        print("❌ Environment variable GITHUB_PAT belum diatur.")
-        return
+#EXTINF:-1 tvg-id="Iheart80s" tvg-name="Iheart80s" tvg-logo="https://i.imgur.com/bjfYe6g.jpeg" group-title="✅ SILAHKAN RE ORDER", SILAHKAN RE ORDER
+https://iheart-iheart80s-1-us.roku.wurl.tv/playlist.m3u8
 
-    g = Github(GITHUB_TOKEN)
-    me = g.get_user()
-    print(f"🔐 Login sebagai: {me.login}")
+#EXTINF:-1 group-logo="https://i.imgur.com/bjfYe6g.jpegg", ✅SILAHKAN RE ORDER OM
 
-    try:
-        repo = g.get_repo(f"{SOURCE_OWNER}/{SOURCE_REPO}")
-    except GithubException as e:
-        print(f"❌ Gagal akses repo: {e}")
-        return
+#EXTINF:-1 tvg-id="Iheart80s" tvg-name="Iheart80s" tvg-logo="https://i.imgur.com/bjfYe6g.jpeg" group-title="✅ SILAHKAN RE ORDER OM", SILAHKAN RE ORDER
+https://iheart-iheart80s-1-us.roku.wurl.tv/playlist.m3u8
 
-    forks = repo.get_forks()
-    print(f"🔍 Ditemukan {forks.totalCount} fork.")
+#EXTINF:-1 group-logo="https://i.imgur.com/bjfYe6g.jpegg", ✅SILAHKAN RE ORDER TANTE
 
-    for f in forks:
-        owner = f.owner.login
-        if owner == SOURCE_OWNER:
-            continue
+#EXTINF:-1 tvg-id="Iheart80s" tvg-name="Iheart80s" tvg-logo="https://i.imgur.com/bjfYe6g.jpeg" group-title="✅SILAHKAN RE ORDER TANTE", SILAHKAN RE ORDER
+https://iheart-iheart80s-1-us.roku.wurl.tv/playlist.m3u8
 
-        if owner in BLOCKLIST or owner != SOURCE_OWNER:
-            print(f"⚠️ Repo mencurigakan: {f.full_name} ({owner})")
+#EXTINF:-1 group-logo="https://i.imgur.com/bjfYe6g.jpegg", 📲 Wa 082219213334
 
-            # 1️⃣ Blok user
-            block_user(me, owner)
+#EXTINF:-1 tvg-id="Iheart80s" tvg-name="Iheart80s" tvg-logo="https://i.imgur.com/bjfYe6g.jpeg" group-title="📲 Wa 082219213334", SILAHKAN RE ORDER
+https://iheart-iheart80s-1-us.roku.wurl.tv/playlist.m3u8
 
-            # 2️⃣ Buat issue di repo kamu
-            title = f"🚨 Deteksi Penyalinan Otomatis oleh @{owner}"
-            body = f"""
-**Repo pelanggar:** [{f.full_name}]({f.html_url})
-**Pemilik:** @{owner}
-**Waktu:** {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S UTC')}
+#EXTINF:-1 group-logo="https://i.imgur.com/bjfYe6g.jpegg", 📲 Wa 082219213334 order
 
-Repo ini tampak menyalin otomatis konten dari `{SOURCE_REPO}` tanpa izin.
-Telah dilakukan blokir otomatis terhadap pengguna tersebut.
+#EXTINF:-1 tvg-id="Iheart80s" tvg-name="Iheart80s" tvg-logo="https://i.imgur.com/bjfYe6g.jpeg" group-title="📲 Wa 082219213334 order", SILAHKAN RE ORDER
+https://iheart-iheart80s-1-us.roku.wurl.tv/playlist.m3u8
 
-🛑 Tindakan selanjutnya: ajukan laporan ke GitHub DMCA jika tidak dihapus dalam 48 jam.
-👉 {REPORT_ENDPOINT}
-"""
+#EXTINF:-1 group-logo="https://i.imgur.com/PJ9tRpK.jpeg",✅ ORDER LYNK
 
-            try:
-                repo.create_issue(title=title, body=body, labels=[ISSUE_LABEL])
-                print("✅ Issue laporan dibuat.")
-            except GithubException as e:
-                print(f"⚠️ Gagal buat issue: {e}")
+#EXTINF:-1 tvg-id="Iheart80s" tvg-name="Iheart80s" tvg-logo="https://i.imgur.com/PJ9tRpK.jpeg" group-title="✅ ORDER LYNK", ORDER LYNK
+https://iheart-iheart80s-1-us.roku.wurl.tv/playlist.m3u8
 
-            # 3️⃣ Kirim peringatan ke repo pelanggar
-            try:
-                if f.has_issues:
-                    f.create_issue(
-                        title="Peringatan Pelanggaran Otomatis",
-                        body="Repo ini menyalin konten dari repo pribadi tanpa izin. Mohon segera hapus."
-                    )
-                    print(f"📢 Peringatan dikirim ke {f.full_name}")
-            except GithubException:
-                print(f"⚠️ Tidak bisa kirim peringatan ke {f.full_name}")
+#EXTINF:-1 group-logo="https://i.imgur.com/PJ9tRpK.jpeg",✅ https://lynk.id/magelife
 
-            # 4️⃣ Siapkan laporan DMCA
-            send_dmca_report(owner, f.html_url)
+#EXTINF:-1 tvg-id="Iheart80s" tvg-name="Iheart80s" tvg-logo="https://i.imgur.com/PJ9tRpK.jpeg" group-title="✅ https://lynk.id/magelife", ORDER SHOPEE
+https://iheart-iheart80s-1-us.roku.wurl.tv/playlist.m3u8
 
-    print("✅ Pemeriksaan selesai.")
+#EXTINF:-1 group-logo="https://i.imgur.com/PJ9tRpK.jpeg", ✅ORDER SHOPEE 
+
+#EXTINF:-1 tvg-id="Iheart80s" tvg-name="Iheart80s" tvg-logo="https://i.imgur.com/EWttwBZ.jpeg" group-title="✅ ORDER SHOPEE", ORDER LYNK
+https://iheart-iheart80s-1-us.roku.wurl.tv/playlist.m3u8
+
+#EXTINF:-1 group-logo="https://i.imgur.com/PJ9tRpK.jpeg", ✅ https://shorturl.at/1r9BB
+
+#EXTINF:-1 tvg-id="Iheart80s" tvg-name="Iheart80s" tvg-logo="https://i.imgur.com/EWttwBZ.jpeg" group-title="✅ https://shorturl.at/1r9BB", ORDER LYNK
+https://iheart-iheart80s-1-us.roku.wurl.tv/playlist.m3u8
 
 
-if __name__ == "__main__":
-    main()
+
+
+
+
+
+
+#EXTM3U billed-msg="😢CHAT ADMIN 082219213334| lynk.id/magelife😎"
